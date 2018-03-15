@@ -38,17 +38,19 @@
     }
 
     startGame() {
-      const riddleWords = ["MONAKO", "MALTA", "WATYKAN", "HOLANDIA", "BELGIA", "NIEMCY", "LIECHTENSTEIN", "WŁOCHY", "SZWAJCARIA", "ANDORA", "LUKSEMBURG", "CZECHY", "MOŁDAWIA", "DANIA", "POLSKA", "SŁOWACJA", "FRANCJA", "WĘGRY", "PORTUGALIA", "ALBANIA", "SERBIA", "SŁOWENIA", "AUSTRIA", "RUMUNIA", "TURCJA", "UKRAINA", "GRECJA", "MACEDONIA", "CHORWACJA", "HISZPANIA", "BUŁGARIA", "LITWA", "IRLANDIA", "CZARNOGÓRA", "BIAŁORUŚ", "ŁOTWA", "ESTONIA", "SZWECJA", "FINLANDIA", "NORWEGIA", "ROSJA", "KAZACHSTAN", "ISLANDIA"];
-      const randomNumber = Math.floor(Math.random() * riddleWords.length);
-      const riddleLettersArray = [...riddleWords[randomNumber]];
+      if (this.state.isPlaying === false) {
+        const riddleWords = ["MONAKO", "MALTA", "WATYKAN", "HOLANDIA", "BELGIA", "NIEMCY", "LIECHTENSTEIN", "WŁOCHY", "SZWAJCARIA", "ANDORA", "LUKSEMBURG", "CZECHY", "MOŁDAWIA", "DANIA", "POLSKA", "SŁOWACJA", "FRANCJA", "WĘGRY", "PORTUGALIA", "ALBANIA", "SERBIA", "SŁOWENIA", "AUSTRIA", "RUMUNIA", "TURCJA", "UKRAINA", "GRECJA", "MACEDONIA", "CHORWACJA", "HISZPANIA", "BUŁGARIA", "LITWA", "IRLANDIA", "CZARNOGÓRA", "BIAŁORUŚ", "ŁOTWA", "ESTONIA", "SZWECJA", "FINLANDIA", "NORWEGIA", "ROSJA", "KAZACHSTAN", "ISLANDIA"];
+        const randomNumber = Math.floor(Math.random() * riddleWords.length);
+        const riddleLettersArray = [...riddleWords[randomNumber]];
 
-      this.setState({
-        riddleLetters: riddleLettersArray,
-        riddleFoundLetters: [],
-        isPlaying: true,
-        clickedLetters: [],
-        attemptsNumber: 10
-      });
+        this.setState({
+          riddleLetters: riddleLettersArray,
+          riddleFoundLetters: [],
+          isPlaying: true,
+          clickedLetters: [],
+          attemptsNumber: 10
+        });
+      }
     }
 
     checkLetter(letter, event) {
